@@ -25,7 +25,7 @@ class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
 
     public static function form(Form $form): Form
     {
@@ -91,7 +91,7 @@ class ProductResource extends Resource
                 return (string) str('images/products/alt_images/'.$name[0].'.png');
             })
             ->label('Alternate Images')
-            ->maxSize(3072)
+            ->maxSize(1024)
             ->image()
             ->nullable()
             ->multiple()

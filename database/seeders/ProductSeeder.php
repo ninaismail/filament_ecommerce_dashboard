@@ -73,7 +73,7 @@ class ProductSeeder extends Seeder
                 'quantity' => rand(1,10),
             ])->categories()->attach($category);
         }    
-        $product = Product::find(290);
+        $product = Product::find(330);
         $product->update([
             'alt_images' => [
                 'images/products/main_image/womens-1.png',
