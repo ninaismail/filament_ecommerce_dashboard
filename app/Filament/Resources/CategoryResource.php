@@ -18,6 +18,7 @@ use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use Livewire\TemporaryUploadedFile;
 
 class CategoryResource extends Resource
 {
@@ -51,6 +52,13 @@ class CategoryResource extends Resource
                 ->helperText('Code will only use the first 2 characters of the first and last words. Ex: "TC" for test category')
                 ->required(),
             FileUpload::make('image')
+                //because of livewire
+                ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
+                    $fileName = $file->hashName();
+                    $name = explode('.', $fileName);
+                    return (string) str('images/categories/images/'.$name[0].'.png');
+                })
+                ->label('Image')
                 ->required(),
         ]);
     }
