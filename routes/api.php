@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductApiController;
+use App\Http\Controllers\CategoryApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,10 @@ use App\Http\Controllers\ProductApiController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-//Route::get('/categories', [CategoriesApiController::class, 'index']);
 Route::get('/products', [ProductApiController::class, 'index']);
+Route::get('/products/{id}/categories', [ProductApiController::class, 'indexwithcategories']);
+Route::get('/products/{id}', [ProductApiController::class, 'getProduct']);
 
+Route::get('/categories', [CategoryApiController::class, 'index']);
+Route::get('/categories/{id}/products', [CategoryApiController::class, 'indexwithproducts']);
+Route::get('/categories/{id}', [CategoryApiController::class, 'getCategory']);
