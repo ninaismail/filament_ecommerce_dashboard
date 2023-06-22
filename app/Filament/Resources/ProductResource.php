@@ -102,11 +102,11 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('main_image'),
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('product_code'),
-                Tables\Columns\TextColumn::make('price'),
-            ])
+                Tables\Columns\ImageColumn::make('main_image')->sortable(),
+                Tables\Columns\TextColumn::make('name')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('product_code')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('price')->sortable(),
+            ])->defaultSort(column: 'price', direction: 'desc')
             ->filters([
                 //
             ])
@@ -124,7 +124,6 @@ class ProductResource extends Resource
             CategoriesRelationManager::class
         ];
     }
-    
     public static function getPages(): array
     {
         return [

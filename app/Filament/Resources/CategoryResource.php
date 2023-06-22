@@ -67,7 +67,7 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                    TextColumn::make('name')->sortable(),
+                    TextColumn::make('name')->sortable()->searchable(),
                     TextColumn::make('slug')->sortable(),
                     TextColumn::make('created_at')
                         ->dateTime('d-M-Y')
@@ -75,7 +75,7 @@ class CategoryResource extends Resource
                         ->searchable(),
                         Tables\Columns\TextColumn::make('updated_at')
                         ->dateTime('d-M-Y'),
-                    TextColumn::make('category_code')->sortable(),   
+                    TextColumn::make('category_code')->sortable()->searchable(),   
                     ImageColumn::make('image'),
                 ])
             ->filters([
