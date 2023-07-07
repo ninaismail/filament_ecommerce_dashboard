@@ -81,7 +81,7 @@ class ProductResource extends Resource
             ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
                 $fileName = $file->hashName();
                 $name = explode('.', $fileName);
-                return (string) str('images/products/main_images/'.$name[0].'.png');
+                return (string) str('images/products/main_image/'.$name[0].'.png');
             })
             ->label('Main Image')
             ->required(),
