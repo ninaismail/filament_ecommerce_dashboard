@@ -68,25 +68,16 @@ class ProductSeeder extends Seeder
                 'details' => 'homegoods',
                 'description' =>'Lorem '. $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 'main_image' => 'images/products/main_image/homegoods-'.$i.'.png',
+                'alt_images' => [
+                    'images/products/main_image/womens-1.png',
+                    'images/products/main_image/homegoods-1.png',
+                    'images/products/main_image/womens-2.png',
+                ],
                 'product_code' => $category->category_code.'-00'.$i,
                 'price' => rand(999, 9999),
                 'quantity' => rand(1,10),
             ])->categories()->attach($category);
         }    
-        $product = Product::find(30);
-        $product->update([
-            'alt_images' => [
-                'images/products/main_image/womens-1.png',
-                'images/products/main_image/homegoods-1.png',
-                'images/products/main_image/womens-2.png',
-                'images/products/main_image/homegoods-2.png',
-                'images/products/main_image/womens-3.png',
-                'images/products/main_image/homegoods-3.png',
-                'images/products/main_image/womens-4.png',
-                'images/products/main_image/homegoods-4.png',
-            ]
-        ]);
-        $product->categories()->attach(4); 
     }
 }
    
