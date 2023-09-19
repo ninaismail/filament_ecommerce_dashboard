@@ -9,7 +9,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Product extends Model
 {
     use HasFactory;
-
+    public $translatable = [
+        'name',
+        'details',
+        'description'
+    ];
     protected $fillable = [
         'name',
         'slug',

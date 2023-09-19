@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('language_lines', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('group')->index();
-            $table->string('key')->index();
-            $table->json('text')->default('[]');
+            $table->string('key');
+            $table->json('text');
             $table->timestamps();
         });
     }

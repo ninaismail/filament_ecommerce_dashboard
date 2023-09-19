@@ -13,11 +13,42 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::insert([
-            ['name' => 'Womens', 'slug' => 'womens', "image" => "", 'category_code' => 'W', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Mens', 'slug' => 'mens', "image" => "", 'category_code' => 'M', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Kids', 'slug' => 'kids', "image" => "", 'category_code' => 'K', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Home Goods', 'slug' => 'homegoods', "image" => "", 'category_code' => 'HG', 'created_at' => now(), 'updated_at' => now()],
-        ]);    
+        $categoriesData = [
+            [
+                'name' => json_encode(['en' => 'Womens', 'ar' => 'نسائي']),
+                'slug' => 'womens',
+                'image' => '',
+                'category_code' => 'W',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => json_encode(['en' => 'Mens', 'ar' => 'رجالي']),
+                'slug' => 'mens',
+                'image' => '',
+                'category_code' => 'M',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => json_encode(['en' => 'Kids', 'ar' => 'أطفال']),
+                'slug' => 'kids',
+                'image' => '',
+                'category_code' => 'K',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => json_encode(['en' => 'Home Goods', 'ar' => 'منتجات منزلية']),
+                'slug' => 'homegoods',
+                'image' => '',
+                'category_code' => 'HG',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ];
+        
+        Category::insert($categoriesData);
+         
     }
 }
