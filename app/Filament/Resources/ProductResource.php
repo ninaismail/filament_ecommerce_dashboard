@@ -43,7 +43,7 @@ class ProductResource extends Resource
                     $set('category_code', Str::substr($firstWord,0,1).Str::substr($secondWord, 0, 1));
                 })
                 ->autofocus()
-                ->unique()
+                ->unique(ignoreRecord: true)
                 ->required(),
             TextInput::make('slug')
                 ->disabled()
